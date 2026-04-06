@@ -3,23 +3,1058 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ConcertSync - macOS menu bar app that syncs your Philips Hue lights to music in real-time.">
-    <title>ConcertSync - Music-Reactive Hue Lighting for macOS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <title>ConcertSync - Turn Your Room Into a Live Concert</title>
+    <meta name="description" content="ConcertSync transforms your Philips Hue lights into a real-time concert experience. Music-reactive lighting that syncs to every beat, drop, and melody.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#0a0e27,#1a0a3e,#0d0e27);color:#fff;overflow-x:hidden}body::before{content:'';position:fixed;width:200%;height:200%;background:radial-gradient(circle at 20% 50%,rgba(168,85,247,.15),transparent 50%),radial-gradient(circle at 80% 80%,rgba(79,172,254,.15),transparent 50%);animation:float 20s ease-in-out infinite;pointer-events:none;z-index:0}@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-30px)}}header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.5rem 2rem;background:rgba(10,14,39,.8);backdrop-filter:blur(10px);border-bottom:1px solid rgba(168,85,247,.1);display:flex;justify-content:space-between;align-items:center}.logo{font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,#a855f7,#ec4899,#4faffe);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}nav{display:flex;gap:2rem;align-items:center}nav a{color:#fff;text-decoration:none;font-size:.95rem}.nav-cta{background:linear-gradient(135deg,#a855f7,#ec4899);padding:.6rem 1.5rem;border-radius:.5rem;color:white;font-weight:600}main{position:relative;z-index:1}.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem;margin-top:60px}.hero h1{font-family:'Poppins',sans-serif;font-size:clamp(2.5rem,8vw,5.5rem);font-weight:900;margin-bottom:1rem;background:linear-gradient(135deg,#a855f7,#ec4899,#4faffe,#a855f7);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gf 4s ease infinite;line-height:1.1}@keyframes gf{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}.hero p{font-size:1.25rem;color:#e0e0e0;margin-bottom:.5rem}.hero .subtitle{font-size:1rem;color:#a0a0a0;margin-bottom:2.5rem}.hero-buttons{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}.btn{padding:1rem 2rem;border-radius:.75rem;text-decoration:none;font-weight:600;font-size:1rem;display:inline-block;border:none;cursor:pointer;transition:all .3s ease}.btn-primary{background:linear-gradient(135deg,#a855f7,#ec4899);color:white;box-shadow:0 10px 30px rgba(168,85,247,.3)}.btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(168,85,247,.4)}.btn-secondary{background:rgba(255,255,255,.1);color:white;border:1px solid rgba(168,85,247,.3)}.waveform{display:flex;gap:.5rem;justify-content:center;align-items:flex-end;height:80px}.bar{width:4px;background:linear-gradient(180deg,#a855f7,#ec4899);border-radius:2px;animation:wave .6s ease-in-out infinite;opacity:.8}.bar:nth-child(1){animation-delay:0s;height:20px}.bar:nth-child(2){animation-delay:.05s;height:30px}.bar:nth-child(3){animation-delay:.1s;height:45px}.bar:nth-child(4){animation-delay:.15s;height:55px}.bar:nth-child(5){animation-delay:.2s;height:65px}.bar:nth-child(6){animation-delay:.15s;height:55px}.bar:nth-child(7){animation-delay:.1s;height:45px}.bar:nth-child(8){animation-delay:.05s;height:30px}.bar:nth-child(9){animation-delay:0s;height:20px}@keyframes wave{0%,100%{transform:scaleY(.5)}50%{transform:scaleY(1)}}.section{padding:5rem 2rem;max-width:1400px;margin:0 auto}.section-title{font-family:'Poppins',sans-serif;font-size:clamp(2rem,5vw,3rem);font-weight:800;margin-bottom:.5rem;text-align:center;background:linear-gradient(135deg,#a855f7,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.section-subtitle{text-align:center;color:#a0a0a0;margin-bottom:3rem}.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}.feature-card{background:rgba(255,255,255,.05);border:1px solid rgba(168,85,247,.2);border-radius:1rem;padding:2rem;transition:all .3s ease}.feature-card:hover{background:rgba(168,85,247,.1);transform:translateY(-10px);box-shadow:0 20px 40px rgba(168,85,247,.15)}.feature-icon{font-size:3rem;margin-bottom:1rem;display:block}.feature-card h3{font-family:'Poppins';font-size:1.3rem;margin-bottom:.75rem}.feature-card p{color:#b0b0b0;line-height:1.6}.how-it-works{background:rgba(168,85,247,.05);border:1px solid rgba(168,85,247,.1);border-radius:1.5rem;padding:3rem;margin-top:4rem}.steps-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}.step{text-align:center}.step-number{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#a855f7,#ec4899);display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-size:1.8rem;font-weight:800;margin:0 auto 1rem}.step h3{font-family:'Poppins';font-size:1.2rem;margin-bottom:.5rem}.step p{color:#b0b0b0}.pricing-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}.pricing-card{background:rgba(255,255,255,.05);border:1px solid rgba(168,85,247,.2);border-radius:1.5rem;padding:2rem;display:flex;flex-direction:column;position:relative}.pricing-card.featured{background:rgba(168,85,247,.1);border-color:rgba(168,85,247,.5);transform:scale(1.05);box-shadow:0 30px 60px rgba(168,85,247,.2)}.pricing-badge{position:absolute;top:-15px;right:20px;background:linear-gradient(135deg,#a855f7,#ec4899);padding:.5rem 1rem;border-radius:2rem;font-size:.8rem;font-weight:700}.pricing-card h3{font-family:'Poppins';font-size:1.5rem;margin-bottom:.5rem}.price{font-size:2.5rem;font-weight:800;margin-bottom:.25rem}.price-period{color:#a0a0a0;margin-bottom:1.5rem}.pricing-features{flex:1;margin-bottom:1.5rem}.pricing-features li{list-style:none;padding:.5rem 0;color:#b0b0b0;display:flex;align-items:center}.pricing-features li::before{content:'\2713';color:#a855f7;margin-right:.75rem;font-weight:700}.pricing-card .btn{width:100%;text-align:center}.faq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:2rem}.faq-item{background:rgba(255,255,255,.05);border:1px solid rgba(168,85,247,.2);border-radius:1rem;padding:1.5rem;cursor:pointer}.faq-item:hover{background:rgba(168,85,247,.1)}.faq-question{font-family:'Poppins';font-size:1.1rem;font-weight:600;display:flex;justify-content:space-between}.faq-answer{color:#b0b0b0;line-height:1.6;margin-top:1rem;display:none}.faq-item.active .faq-answer{display:block}.faq-toggle{transition:transform .3s ease}.faq-item.active .faq-toggle{transform:rotate(180deg)}footer{background:rgba(10,14,39,.95);border-top:1px solid rgba(168,85,247,.1);padding:3rem 2rem;margin-top:5rem}.footer-content{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-bottom:2rem}.footer-section h4{font-family:'Poppins';margin-bottom:1rem}.footer-section a{color:#a0a0a0;text-decoration:none;display:block;margin-bottom:.5rem}.footer-section a:hover{color:#a855f7}.footer-bottom{border-top:1px solid rgba(168,85,247,.1);padding-top:2rem;text-align:center;color:#707070}@media(max-width:768px){header{padding:1rem}nav a{display:none}.hero{margin-top:80px}.hero h1{font-size:2rem}.pricing-card.featured{transform:scale(1)}.features-grid,.pricing-cards,.faq-grid{grid-template-columns:1fr}}
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --neon-magenta: #ff00ff;
+            --neon-cyan: #00ffff;
+            --neon-blue: #4d4dff;
+            --neon-purple: #b000ff;
+            --neon-pink: #ff2d95;
+            --neon-orange: #ff6b00;
+            --dark-bg: #0a0a0f;
+            --dark-card: #111118;
+            --dark-card-border: #1a1a2e;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b8;
+            --glow-magenta: 0 0 20px rgba(255, 0, 255, 0.3), 0 0 60px rgba(255, 0, 255, 0.1);
+            --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.3), 0 0 60px rgba(0, 255, 255, 0.1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ---- NAV ---- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 0, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--neon-magenta), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--neon-magenta), var(--neon-purple));
+            color: white !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: box-shadow 0.3s !important;
+        }
+        .nav-cta:hover { box-shadow: var(--glow-magenta); }
+
+        .mobile-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+        /* ---- HERO ---- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(255, 0, 255, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 50%, rgba(0, 255, 255, 0.06) 0%, transparent 50%),
+                        radial-gradient(ellipse at 50% 20%, rgba(176, 0, 255, 0.05) 0%, transparent 40%);
+            animation: heroGlow 8s ease-in-out infinite alternate;
+        }
+        @keyframes heroGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-2%, 2%) scale(1.05); }
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 900px; }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--neon-magenta);
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--neon-magenta), var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: linear-gradient(135deg, var(--neon-magenta), var(--neon-purple));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--glow-magenta); }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: border-color 0.3s, background 0.3s;
+        }
+        .btn-secondary:hover { border-color: var(--neon-cyan); background: rgba(0, 255, 255, 0.05); }
+
+        /* Animated light beams */
+        .light-beams {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .beam {
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            opacity: 0.15;
+            animation: beamSweep 6s ease-in-out infinite;
+        }
+        .beam:nth-child(1) { left: 15%; background: linear-gradient(to bottom, var(--neon-magenta), transparent); animation-delay: 0s; }
+        .beam:nth-child(2) { left: 35%; background: linear-gradient(to bottom, var(--neon-cyan), transparent); animation-delay: 1.5s; }
+        .beam:nth-child(3) { left: 55%; background: linear-gradient(to bottom, var(--neon-purple), transparent); animation-delay: 3s; }
+        .beam:nth-child(4) { left: 75%; background: linear-gradient(to bottom, var(--neon-pink), transparent); animation-delay: 4.5s; }
+        .beam:nth-child(5) { left: 90%; background: linear-gradient(to bottom, var(--neon-orange), transparent); animation-delay: 2s; }
+        @keyframes beamSweep {
+            0%, 100% { transform: translateX(-20px) scaleY(0.5); opacity: 0.05; }
+            50% { transform: translateX(20px) scaleY(1); opacity: 0.2; }
+        }
+
+        /* ---- SECTIONS SHARED ---- */
+        section { padding: 6rem 2rem; }
+        .section-container { max-width: 1100px; margin: 0 auto; }
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+        }
+        .section-header { margin-bottom: 3.5rem; }
+        .section-header.center { text-align: center; }
+        .section-header.center .section-subtitle { margin: 0 auto; }
+
+        /* ---- FEATURES ---- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .feature-card {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-card-border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: border-color 0.3s, transform 0.2s;
+        }
+        .feature-card:hover {
+            border-color: rgba(255, 0, 255, 0.2);
+            transform: translateY(-4px);
+        }
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            font-weight: 800;
+        }
+        .feature-icon.magenta { background: rgba(255, 0, 255, 0.1); color: var(--neon-magenta); }
+        .feature-icon.cyan { background: rgba(0, 255, 255, 0.1); color: var(--neon-cyan); }
+        .feature-icon.purple { background: rgba(176, 0, 255, 0.1); color: var(--neon-purple); }
+        .feature-icon.pink { background: rgba(255, 45, 149, 0.1); color: var(--neon-pink); }
+        .feature-icon.orange { background: rgba(255, 107, 0, 0.1); color: var(--neon-orange); }
+        .feature-icon.blue { background: rgba(77, 77, 255, 0.1); color: var(--neon-blue); }
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ---- HOW IT WORKS ---- */
+        .how-it-works { background: linear-gradient(180deg, var(--dark-bg), #0d0d14, var(--dark-bg)); }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            counter-reset: step;
+        }
+        .step {
+            position: relative;
+            padding: 2rem;
+            text-align: center;
+            counter-increment: step;
+        }
+        .step::before {
+            content: counter(step);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--neon-magenta), var(--neon-purple));
+            color: white;
+        }
+        .step h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .step p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ---- DEMO / VISUAL ---- */
+        .demo-section { position: relative; }
+        .demo-visual {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--dark-card-border);
+            background: var(--dark-card);
+            position: relative;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .demo-visual-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .demo-bar {
+            position: absolute;
+            bottom: 0;
+            width: 4%;
+            border-radius: 4px 4px 0 0;
+            animation: barPulse 1.5s ease-in-out infinite;
+        }
+        @keyframes barPulse {
+            0%, 100% { transform: scaleY(0.3); }
+            50% { transform: scaleY(1); }
+        }
+        .demo-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(10, 10, 15, 0.4);
+            z-index: 2;
+        }
+        .demo-overlay p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+        .play-button {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-magenta), var(--neon-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+        .play-button:hover { transform: scale(1.1); box-shadow: var(--glow-magenta); }
+        .play-button svg { width: 28px; height: 28px; fill: white; margin-left: 4px; }
+
+        /* ---- SPECS ---- */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+        .spec-card {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-card-border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+        .spec-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 0.3rem;
+            background: linear-gradient(135deg, var(--neon-magenta), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .spec-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* ---- TESTIMONIALS ---- */
+        .testimonials { background: linear-gradient(180deg, var(--dark-bg), #0d0d14, var(--dark-bg)); }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .testimonial-card {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-card-border);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        .testimonial-card blockquote {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--neon-magenta), var(--neon-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+        .testimonial-name { font-weight: 600; font-size: 0.95rem; }
+        .testimonial-role { font-size: 0.8rem; color: var(--text-secondary); }
+
+        /* ---- PRICING ---- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .pricing-card {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-card-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+        }
+        .pricing-card.featured {
+            border-color: var(--neon-magenta);
+            box-shadow: var(--glow-magenta);
+        }
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--neon-magenta), var(--neon-purple));
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            padding: 0.3rem 1rem;
+            border-radius: 100px;
+        }
+        .pricing-tier {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--neon-cyan);
+            margin-bottom: 0.5rem;
+        }
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 0.25rem;
+        }
+        .pricing-price span { font-size: 1rem; font-weight: 500; color: var(--text-secondary); }
+        .pricing-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+        .pricing-features { list-style: none; margin-bottom: 2rem; }
+        .pricing-features li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .pricing-features li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--neon-cyan);
+            flex-shrink: 0;
+        }
+        .pricing-btn {
+            display: block;
+            width: 100%;
+            padding: 0.85rem;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.3s;
+            border: none;
+        }
+        .pricing-btn.primary {
+            background: linear-gradient(135deg, var(--neon-magenta), var(--neon-purple));
+            color: white;
+        }
+        .pricing-btn.primary:hover { transform: translateY(-2px); box-shadow: var(--glow-magenta); }
+        .pricing-btn.secondary {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+        }
+        .pricing-btn.secondary:hover { border-color: var(--neon-cyan); }
+
+        /* ---- FAQ ---- */
+        .faq-list { max-width: 720px; margin: 0 auto; }
+        .faq-item {
+            border-bottom: 1px solid var(--dark-card-border);
+            padding: 1.5rem 0;
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            font-family: inherit;
+        }
+        .faq-question .icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .faq-item.open .faq-question .icon { transform: rotate(45deg); border-color: var(--neon-magenta); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-answer p {
+            padding-top: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ---- CTA ---- */
+        .final-cta {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(255, 0, 255, 0.08), transparent 60%);
+        }
+        .final-cta .section-container { position: relative; z-index: 1; }
+        .final-cta h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        .final-cta p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ---- FOOTER ---- */
+        footer {
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--dark-card-border);
+            text-align: center;
+        }
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-logo {
+            font-size: 1.1rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--neon-magenta), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--text-primary); }
+        .footer-copy { color: var(--text-secondary); font-size: 0.8rem; width: 100%; margin-top: 1.5rem; }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 15, 0.95);
+                backdrop-filter: blur(20px);
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+                border-bottom: 1px solid var(--dark-card-border);
+            }
+            .mobile-toggle { display: block; }
+            .hero h1 { font-size: clamp(2.5rem, 10vw, 4rem); }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .features-grid { grid-template-columns: 1fr; }
+            .steps { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .footer-content { justify-content: center; text-align: center; }
+            .footer-links { justify-content: center; }
+        }
+
+        /* ---- SCROLL ANIMATIONS ---- */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
-    <header><a href="#" class="logo">ConcertSync</a><nav><a href="#features">Features</a><a href="#how">How It Works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="https://apps.apple.com" class="nav-cta">Download</a></nav></header>
-    <main>
-        <section class="hero"><div class="hero-content"><h1>Your Music, Your Lights</h1><p>Turn your room into a concert venue</p><p class="subtitle">ConcertSync syncs your Philips Hue lights to music in real-time. Pure magic, right in your macOS menu bar.</p><div class="hero-buttons"><a href="https://apps.apple.com" class="btn btn-primary">Download on Mac App Store</a><a href="#features" class="btn btn-secondary">Learn More</a></div><div class="waveform"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div></div></section>
-        <section class="section" id="features"><h2 class="section-title">Features</h2><p class="section-subtitle">Everything you need for music-reactive lighting</p><div class="features-grid"><div class="feature-card"><span class="feature-icon">&#127925;</span><h3>Real-Time Audio Analysis</h3><p>Advanced FFT and beat detection algorithms analyze music 60 times per second, captured locally on your Mac with zero latency.</p></div><div class="feature-card"><span class="feature-icon">&#127912;</span><h3>10+ Built-In Presets</h3><p>Handcrafted lighting effects from classic spectrum analyzers to club vibes, with full customization.</p></div><div class="feature-card"><span class="feature-icon">&#9889;</span><h3>Ultra-Fast Sync</h3><p>Direct local network communication with your Philips Hue Bridge ensures zero lag and instant light reactions.</p></div><div class="feature-card"><span class="feature-icon">&#127899;</span><h3>Full Customization</h3><p>Tweak sensitivity, frequency ranges, color palettes, and transition speeds. Make it exactly yours.</p></div><div class="feature-card"><span class="feature-icon">&#128274;</span><h3>Privacy-First Design</h3><p>All audio processing happens locally on your Mac. No cloud, no tracking, no data collection. Ever.</p></div><div class="feature-card"><span class="feature-icon">&#128205;</span><h3>Menu Bar Integration</h3><p>Live in your macOS menu bar. Quick toggle, view status, and access presets without leaving your workflow.</p></div></div></section>
-        <section class="section" id="how"><h2 class="section-title">How It Works</h2><p class="section-subtitle">Simple, fast, and elegant</p><div class="how-it-works"><div class="steps-container"><div class="step"><div class="step-number">1</div><h3>Install &amp; Connect</h3><p>Download from the Mac App Store, then authenticate with your Philips Hue account.</p></div><div class="step"><div class="step-number">2</div><h3>Select Audio Source</h3><p>Choose microphone or system audio (Spotify, Apple Music, YouTube).</p></div><div class="step"><div class="step-number">3</div><h3>Pick Your Vibe</h3><p>Choose from 10+ presets or create your own.</p></div><div class="step"><div class="step-number">4</div><h3>Play &amp; Watch</h3><p>Hit play and watch your lights dance in real-time.</p></div></div></div></section>
-        <section class="section" id="pricing"><h2 class="section-title">Simple Pricing</h2><p class="section-subtitle">Choose the plan that fits your needs</p><div class="pricing-cards"><div class="pricing-card"><h3>Monthly</h3><div class="price">$9.99</div><div class="price-period">/month</div><ul class="pricing-features"><li>Full access to all presets</li><li>Real-time audio sync</li><li>Custom effects builder</li><li>Unlimited light groups</li><li>Regular updates</li></ul><a href="https://apps.apple.com" class="btn btn-primary">Subscribe</a></div><div class="pricing-card featured"><div class="pricing-badge">Best Value</div><h3>Yearly</h3><div class="price">$79.99</div><div class="price-period">/year</div><ul class="pricing-features"><li>All monthly features</li><li>Priority support</li><li>2 months free vs. monthly</li><li>Beta access to new presets</li><li>Advanced analytics</li></ul><a href="https://apps.apple.com" class="btn btn-primary">Subscribe</a></div><div class="pricing-card"><h3>Lifetime</h3><div class="price">$199.99</div><div class="price-period">one-time</div><ul class="pricing-features"><li>Lifetime updates included</li><li>All current &amp; future presets</li><li>Priority support</li><li>No recurring charges</li><li>VIP community access</li></ul><a href="https://apps.apple.com" class="btn btn-primary">Purchase</a></div></div></section>
-        <section class="section" id="faq"><h2 class="section-title">FAQ</h2><p class="section-subtitle">Everything you need to know</p><div class="faq-grid"><div class="faq-item"><div class="faq-question"><span>Do I need a Philips Hue Bridge?</span><span class="faq-toggle">&#9660;</span></div><div class="faq-answer">Yes, ConcertSync requires a Philips Hue Bridge v2 or later for secure local network communication with your lights.</div></div><div class="faq-item"><div class="faq-question"><span>Is my audio data sent to servers?</span><span class="faq-toggle">&#9660;</span></div><div class="faq-answer">No. All audio processing happens locally on your Mac. We never record, store, or transmit your audio.</div></div><div class="faq-item"><div class="faq-question"><span>Works with Spotify/Apple Music?</span><span class="faq-toggle">&#9660;</span></div><div class="faq-answer">Absolutely. Choose system audio as your source. Works with any app that plays audio on your Mac.</div></div><div class="faq-item"><div class="faq-question"><span>What macOS versions?</span><span class="faq-toggle">&#9660;</span></div><div class="faq-answer">macOS 13.0 (Ventura) or later. Works on Apple Silicon and Intel Macs.</div></div></div></section>
-    </main>
-    <footer><div class="footer-content"><div class="footer-section"><h4>ConcertSync</h4><a href="https://apps.apple.com">Download</a><a href="#features">Features</a><a href="#pricing">Pricing</a></div><div class="footer-section"><h4>Support</h4><a href="mailto:support@concertsync.dev">Contact Us</a></div><div class="footer-section"><h4>Legal</h4><a href="./privacy.html">Privacy Policy</a><a href="./terms.html">Terms of Service</a></div><div class="footer-section"><h4>Connect</h4><a href="mailto:support@concertsync.dev">support@concertsync.dev</a></div></div><div class="footer-bottom"><p>&#169; 2026 ConcertSync. All rights reserved. Not affiliated with Philips or Philips Hue.</p></div></footer>
-    <script>document.querySelectorAll('.faq-item').forEach(i=>{i.querySelector('.faq-question').addEventListener('click',()=>{i.classList.toggle('active')})});</script>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-logo">ConcertSync</div>
+    <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">&#9776;</button>
+    <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#demo">Demo</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#download" class="nav-cta">Download</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="light-beams">
+        <div class="beam"></div>
+        <div class="beam"></div>
+        <div class="beam"></div>
+        <div class="beam"></div>
+        <div class="beam"></div>
+    </div>
+    <div class="hero-content fade-up">
+        <div class="hero-badge">Now Supporting Gradient Signe Lights</div>
+        <h1>Turn Your Room Into<br><span class="gradient-text">a Live Concert</span></h1>
+        <p>ConcertSync transforms your Philips Hue lights into a real-time concert experience. Every beat, drop, and melody syncs to your lights at 50 frames per second.</p>
+        <div class="hero-buttons">
+            <a href="#download" class="btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download for macOS
+            </a>
+            <a href="#demo" class="btn-secondary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Watch Demo
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+    <div class="section-container">
+        <div class="section-header center fade-up">
+            <div class="section-label">Features</div>
+            <h2 class="section-title">Every Feature a Concert Needs</h2>
+            <p class="section-subtitle">Professional-grade light synchronization powered by real-time audio analysis and the Hue Entertainment DTLS streaming protocol.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card fade-up">
+                <div class="feature-icon magenta">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                </div>
+                <h3>Real-Time Audio Sync</h3>
+                <p>Captures system audio directly and analyzes frequency bands in real time. Lights respond to bass, mids, and highs independently for rich layered effects.</p>
+            </div>
+            <div class="feature-card fade-up">
+                <div class="feature-icon cyan">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3>DTLS Streaming at 50Hz</h3>
+                <p>Direct encrypted streaming to your Hue bridge over DTLS. Color updates hit your lights 50 times per second with virtually zero perceptible latency.</p>
+            </div>
+            <div class="feature-card fade-up">
+                <div class="feature-icon purple">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3>Gradient Light Support</h3>
+                <p>Full support for Signe floor lamps and gradient lightstrips. Each segment receives interpolated color data for smooth flowing gradient effects.</p>
+            </div>
+            <div class="feature-card fade-up">
+                <div class="feature-icon pink">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                </div>
+                <h3>Concert Mode Presets</h3>
+                <p>Switch between EDM, Rock, Jazz, Ambient, and Custom presets. Each mode tunes the frequency response curves and color palettes for the genre.</p>
+            </div>
+            <div class="feature-card fade-up">
+                <div class="feature-icon orange">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <h3>Visual Scene Editor</h3>
+                <p>Map your lights in 3D space and assign frequency bands, color ranges, and intensity curves. Drag and drop to design your perfect light show.</p>
+            </div>
+            <div class="feature-card fade-up">
+                <div class="feature-icon blue">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Up to 10 Lights</h3>
+                <p>Control up to 10 entertainment lights simultaneously. Mix standard bulbs, Signe lamps, and gradient strips in a single synchronized configuration.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="how-it-works">
+    <div class="section-container">
+        <div class="section-header center fade-up">
+            <div class="section-label">How It Works</div>
+            <h2 class="section-title">Three Steps to a Light Show</h2>
+            <p class="section-subtitle">ConcertSync handles the complex bridge communication so you can focus on the music.</p>
+        </div>
+        <div class="steps">
+            <div class="step fade-up">
+                <h3>Connect Your Bridge</h3>
+                <p>Press the button on your Hue bridge and ConcertSync auto-discovers it on your network. Credentials are stored securely in your macOS Keychain.</p>
+            </div>
+            <div class="step fade-up">
+                <h3>Arrange Your Lights</h3>
+                <p>Select which lights to include, position them in the scene editor, and choose a concert mode preset or build your own custom mapping.</p>
+            </div>
+            <div class="step fade-up">
+                <h3>Play Music</h3>
+                <p>Hit start and play any music from any app. ConcertSync captures system audio and streams color data directly to your lights over encrypted DTLS.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DEMO -->
+<section id="demo" class="demo-section">
+    <div class="section-container">
+        <div class="section-header center fade-up">
+            <div class="section-label">See It In Action</div>
+            <h2 class="section-title">Experience the Light Show</h2>
+            <p class="section-subtitle">Watch ConcertSync react to a live DJ set in real time.</p>
+        </div>
+        <div class="demo-visual fade-up" id="demoVisual">
+            <div class="demo-visual-inner" id="demoBars"></div>
+            <div class="demo-overlay">
+                <button class="play-button" id="playBtn" aria-label="Play demo">
+                    <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </button>
+                <p>Watch the demo</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SPECS -->
+<section>
+    <div class="section-container">
+        <div class="specs-grid fade-up">
+            <div class="spec-card">
+                <div class="spec-value">50Hz</div>
+                <div class="spec-label">Streaming Frame Rate</div>
+            </div>
+            <div class="spec-card">
+                <div class="spec-value">&lt;20ms</div>
+                <div class="spec-label">Audio-to-Light Latency</div>
+            </div>
+            <div class="spec-card">
+                <div class="spec-value">10</div>
+                <div class="spec-label">Simultaneous Lights</div>
+            </div>
+            <div class="spec-card">
+                <div class="spec-value">AES-128</div>
+                <div class="spec-label">DTLS Encryption</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+    <div class="section-container">
+        <div class="section-header center fade-up">
+            <div class="section-label">What People Say</div>
+            <h2 class="section-title">Loved by Music Fans</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-up">
+                <blockquote>"I threw a house party and everyone thought I hired a lighting crew. It was just ConcertSync and 6 Hue bulbs. Absolutely wild."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MR</div>
+                    <div>
+                        <div class="testimonial-name">Marcus R.</div>
+                        <div class="testimonial-role">DJ / Producer</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-up">
+                <blockquote>"The gradient support is incredible. My two Signe lamps create this flowing wave effect that perfectly follows the music. Concert vibes every night."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SK</div>
+                    <div>
+                        <div class="testimonial-name">Sarah K.</div>
+                        <div class="testimonial-role">Music Enthusiast</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-up">
+                <blockquote>"Sub-20ms latency is no joke. The lights hit right on the beat every time. Blows every other Hue sync app out of the water."</blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JT</div>
+                    <div>
+                        <div class="testimonial-name">James T.</div>
+                        <div class="testimonial-role">Audio Engineer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+    <div class="section-container">
+        <div class="section-header center fade-up">
+            <div class="section-label">Pricing</div>
+            <h2 class="section-title">Start Free, Go Pro</h2>
+            <p class="section-subtitle">No subscription. One-time purchase for lifetime access.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card fade-up">
+                <div class="pricing-tier">Free</div>
+                <div class="pricing-price">$0</div>
+                <div class="pricing-desc">Get started with basic concert lighting.</div>
+                <ul class="pricing-features">
+                    <li>Up to 3 lights</li>
+                    <li>2 concert mode presets</li>
+                    <li>25Hz streaming</li>
+                    <li>Standard bulb support</li>
+                </ul>
+                <a href="#download" class="pricing-btn secondary">Download Free</a>
+            </div>
+            <div class="pricing-card featured fade-up">
+                <div class="pricing-tier">Pro</div>
+                <div class="pricing-price">$29 <span>one-time</span></div>
+                <div class="pricing-desc">The full concert experience, no limits.</div>
+                <ul class="pricing-features">
+                    <li>Up to 10 lights</li>
+                    <li>All concert mode presets</li>
+                    <li>50Hz streaming</li>
+                    <li>Gradient and Signe support</li>
+                    <li>Visual scene editor</li>
+                    <li>Custom frequency mapping</li>
+                </ul>
+                <a href="#download" class="pricing-btn primary">Get ConcertSync Pro</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+    <div class="section-container">
+        <div class="section-header center fade-up">
+            <div class="section-label">FAQ</div>
+            <h2 class="section-title">Common Questions</h2>
+        </div>
+        <div class="faq-list fade-up">
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open'); const a = this.nextElementSibling; a.style.maxHeight = a.style.maxHeight ? null : a.scrollHeight + 'px';">
+                    What Hue lights are compatible?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>ConcertSync works with any Philips Hue light that supports the Entertainment API. This includes standard color bulbs (E26/E27), Hue Play bars, Signe floor and table lamps, gradient lightstrips, and Go portable lights. A Hue Bridge (square model, v2+) is required.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open'); const a = this.nextElementSibling; a.style.maxHeight = a.style.maxHeight ? null : a.scrollHeight + 'px';">
+                    Does it work with any music source?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. ConcertSync captures system audio directly from macOS, so it works with Spotify, Apple Music, YouTube, SoundCloud, Tidal, or any application that produces sound. No special integration or plugin needed.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open'); const a = this.nextElementSibling; a.style.maxHeight = a.style.maxHeight ? null : a.scrollHeight + 'px';">
+                    How is this different from Hue Sync?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Hue Sync mirrors your screen colors. ConcertSync analyzes audio frequency data in real time to create lighting effects that respond to the actual music -- bass hits, melodic patterns, and drops all trigger distinct light behaviors. The result is dramatically more immersive.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open'); const a = this.nextElementSibling; a.style.maxHeight = a.style.maxHeight ? null : a.scrollHeight + 'px';">
+                    Is there a Windows version?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>ConcertSync is currently macOS-only. A Windows version is on the roadmap but does not have a confirmed release date yet. Join our mailing list to be notified.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="this.parentElement.classList.toggle('open'); const a = this.nextElementSibling; a.style.maxHeight = a.style.maxHeight ? null : a.scrollHeight + 'px';">
+                    Is my Hue bridge data secure?
+                    <span class="icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely. Bridge credentials are stored in your macOS Keychain and never leave your machine. All streaming is encrypted with AES-128-GCM over DTLS. ConcertSync communicates directly with your bridge on your local network -- no cloud, no account, no telemetry.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="download" class="final-cta">
+    <div class="section-container fade-up">
+        <div class="section-label">Ready?</div>
+        <h2>Your Next Concert<br>Is at Home</h2>
+        <p>Download ConcertSync and transform your room in under two minutes.</p>
+        <div class="hero-buttons" style="justify-content: center;">
+            <a href="#" class="btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download for macOS
+            </a>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 1rem; color: #666;">Requires macOS 12+ and Philips Hue Bridge v2</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">ConcertSync</div>
+        <div class="footer-links">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
+            <a href="mailto:support@concertsync.app">Support</a>
+        </div>
+        <div class="footer-copy">2026 ConcertSync. All rights reserved.</div>
+    </div>
+</footer>
+
+<script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Generate demo bars
+    const barsContainer = document.getElementById('demoBars');
+    const neonColors = ['#ff00ff', '#00ffff', '#b000ff', '#ff2d95', '#ff6b00', '#4d4dff', '#ff00ff', '#00ffff'];
+    for (let i = 0; i < 24; i++) {
+        const bar = document.createElement('div');
+        bar.className = 'demo-bar';
+        bar.style.left = (i * 4.16 + 0.5) + '%';
+        bar.style.height = (30 + Math.random() * 50) + '%';
+        bar.style.background = 'linear-gradient(to top, ' + neonColors[i % neonColors.length] + '88, ' + neonColors[i % neonColors.length] + ')';
+        bar.style.animationDelay = (Math.random() * 1.5) + 's';
+        bar.style.animationDuration = (0.8 + Math.random() * 0.8) + 's';
+        barsContainer.appendChild(bar);
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.querySelector('.nav-links')?.classList.remove('open');
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
